@@ -7,12 +7,14 @@
   "license": "MIT",
   "scripts": {
     "start": "node dist/index.js",
-    "dev": "ts-node src/index.ts",
+    "dev": "tsx watch src/index.ts",
     "build": "tsc"
   },
   "devDependencies": {
+    "@types/express": "^5.0.0",
     "@types/node": "^22.9.0",
     "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
     "typescript": "^5.6.3"
   },
   "dependencies": {
