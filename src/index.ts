@@ -1,5 +1,6 @@
-import express, { Request, Response, NextFunction } from "express";
+import express from "express";
 import formValuesValidation from "./middleware/formValuesValidation";
+import formTalkToUsController from "./controllers/formTalkToUsController";
 
 const app = express();
 
@@ -9,6 +10,4 @@ app.listen(3000, () => {
     console.log("Server is running on port 3000");
 });
 
-app.post("/api/fale-conosco", formValuesValidation, (req: Request, res: Response) => {
-    res.status(200).json(req.body);
-});
+app.post("/api/fale-conosco", formValuesValidation, formTalkToUsController.index);
