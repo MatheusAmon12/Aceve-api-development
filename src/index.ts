@@ -2,6 +2,8 @@ import express from "express";
 import formValuesValidation from "./middleware/formValuesValidation";
 import formTalkToUsController from "./controllers/formTalkToUsController";
 
+console.log(process.env.SMTP_HOST);
+
 const app = express();
 
 app.use(express.json());
