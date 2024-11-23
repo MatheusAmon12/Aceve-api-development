@@ -1,44 +1,46 @@
-const getEmailFormTalkToUsValues = (name: string, email: string, message: string) => {
-    const emailOptions = {
-        from: process.env.SMTP_FROM_EMAIL,
-        to: process.env.SMTP_TO_EMAIL,
+interface IFormBeeVolunteerValues {
+    name: string;
+    dateOfBirth: string;
+    phone: number;
+    email: string;
+    availability: string;
+    interestArea: string;
+    message: string;
+}
+
+const setEmailFormTalkToUsConfig = (name: string, email: string, message: string) => {
+    const emailMessage = {
+        from: process.env.SMTP_FROM_EMAIL || "",
+        to: process.env.SMTP_TO_EMAIL || "",
         subject: `Novo contato de ${name}`,
         text: message,
         replyTo: email
     };
 
-    return emailOptions;
+    return emailMessage;
 };
 
-const getEmailFormBeVolunteerValues = (
-    name: string, 
-    dateOfBirth: string, 
-    phone: number, 
-    email: string, 
-    availability: string, 
-    interestArea: string, 
-    message: string
-) => {
-    const emailOptions = {
-        from: process.env.SMTP_FROM_EMAIL,
-        to: process.env.SMTP_TO_EMAIL,
+const setEmailFormBeVolunteerConfig = (formBeVolunteerValues: IFormBeeVolunteerValues) => {
+    const emailMessage = {
+        from: process.env.SMTP_FROM_EMAIL || "",
+        to: process.env.SMTP_TO_EMAIL || "",
         subject: "Voluntariado ACEVE",
         html: `
-            <p>Nome: ${name}</p>
-            <p>Data de nascimento: ${dateOfBirth}</p>
-            <p>Telefone: ${phone}</p>
-            <p>E-mail: ${email}</p>
-            <p>Área de interesse: ${interestArea}</p>
-            <p>Disponibilidade: ${availability}</p>
-            <p>Mensagem: ${message}</p>
+            <p>Nome: ${formBeVolunteerValues.name}</p>
+            <p>Data de nascimento: ${formBeVolunteerValues.dateOfBirth}</p>
+            <p>Telefone: ${formBeVolunteerValues.phone}</p>
+            <p>E-mail: ${formBeVolunteerValues.email}</p>
+            <p>Área de interesse: ${formBeVolunteerValues.interestArea}</p>
+            <p>Disponibilidade: ${formBeVolunteerValues.availability}</p>
+            <p>Mensagem: ${formBeVolunteerValues.message}</p>
         `,
-        replyTo: email
+        replyTo: formBeVolunteerValues.email
     };
 
-    return emailOptions;
+    return emailMessage;
 };
 
 export { 
-    getEmailFormTalkToUsValues, 
-    getEmailFormBeVolunteerValues 
+    setEmailFormTalkToUsConfig, 
+    setEmailFormBeVolunteerConfig, 
 };
