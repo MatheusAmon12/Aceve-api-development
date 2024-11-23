@@ -1,4 +1,4 @@
-import { transporter } from "./smtpTransporterInit";
+import { transporter } from "../config/nodemailerConfig";
 
 const sendEmail = (name: string, email:string, message:string) => {
     const emailOptions = {
