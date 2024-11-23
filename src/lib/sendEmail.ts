@@ -1,10 +1,8 @@
-import { getEmailFormTalkToUsValues } from "../config/emailsConfig";
+import { MailOptions } from "nodemailer/lib/sendmail-transport";
 import { transporter } from "../config/nodemailerConfig";
 
-const sendEmail = (name: string, email:string, message:string) => {
-    const emailOptions = getEmailFormTalkToUsValues(name, email, message);
-
-    transporter.sendMail(emailOptions, (error, info) => {
+const sendEmailMessage = (emailMessage: MailOptions) => {
+    transporter.sendMail(emailMessage, (error, info) => {
         if (error) {
             return console.log(error);
         }
@@ -13,4 +11,4 @@ const sendEmail = (name: string, email:string, message:string) => {
 };
 
 
-export default sendEmail;
+export default sendEmailMessage;
