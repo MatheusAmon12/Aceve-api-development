@@ -3,7 +3,7 @@ import { body, validationResult } from "express-validator";
 
 const formBeVolunteerValidation = [
     body('name').notEmpty().withMessage("O campo nome é obrigatório!"),
-    body('dateOfBirth').isDate().withMessage("Digite uma data válida!"),
+    body('dateOfBirth').notEmpty().withMessage("Digite uma data válida!"),
     body('phone').isNumeric().withMessage("O campo de telefone!"),
     body('email').isEmail().withMessage("Digite um e-mail válido!"),
     body('availability').notEmpty().withMessage("O campo disponibilidade é obrigatório!"),
