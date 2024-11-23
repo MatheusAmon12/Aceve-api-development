@@ -8,13 +8,19 @@ interface IFormBeeVolunteerValues {
     message: string;
 }
 
-const setEmailFormTalkToUsConfig = (name: string, email: string, message: string) => {
+interface IFormTalkToUsValues {
+    name: string;
+    email: string;
+    message: string;
+}
+
+const setEmailFormTalkToUsConfig = (formTalkToUsValues: IFormTalkToUsValues) => {
     const emailMessage = {
         from: process.env.SMTP_FROM_EMAIL || "",
         to: process.env.SMTP_TO_EMAIL || "",
-        subject: `Novo contato de ${name}`,
-        text: message,
-        replyTo: email
+        subject: `Novo contato de ${formTalkToUsValues.name}`,
+        text: formTalkToUsValues.message,
+        replyTo: formTalkToUsValues.email
     };
 
     return emailMessage;

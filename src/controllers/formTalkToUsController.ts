@@ -4,14 +4,14 @@ import { setEmailFormTalkToUsConfig } from "../config/emailsConfig";
 
 const formTalkToUsController = {
     index: (req: Request, res: Response) => {
-        const { name, email, message } = req.body;
+        const formTalkToUsValues = req.body;
         try {
-            const emailOptions = setEmailFormTalkToUsConfig(name, email, message);
+            const emailOptions = setEmailFormTalkToUsConfig(formTalkToUsValues);
             sendEmail(emailOptions);
             res.status(200).json({ message: "Mensagem enviada com sucesso!" });
         }
         catch (error) {
-            res.status(500).json({ message: `Erro ao enviar mensagem: ${error}`});
+            res.status(500).json({ message: "Erro ao enviar mensagem"});
         }
     },
 };
