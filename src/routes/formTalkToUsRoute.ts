@@ -1,6 +1,6 @@
 import { Router } from "express";
 import formTalkToUsController from "../controllers/formTalkToUsController";
-import formTalkToUsValidation from "../middleware/formTalkToUsValidation";
+import formTalkToUsValidation from "../middlewares/formTalkToUsValidation";
 
 const router = Router();
 

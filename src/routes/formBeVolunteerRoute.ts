@@ -1,5 +1,5 @@
 import { Router } from "express";
-import formBeVolunteerValidation from "../middleware/formBeVolunteerValidation";
+import formBeVolunteerValidation from "../middlewares/formBeVolunteerValidation";
 import formTalkToUsController from "../controllers/formTalkToUsController";
 import formBeVolunteerController from "../controllers/formBeVolunteerController";
 
