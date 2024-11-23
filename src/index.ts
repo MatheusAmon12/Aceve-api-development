@@ -2,6 +2,7 @@ import express from "express";
 import formTalkToUsRoute from "./routes/formTalkToUsRoute";
 import formBeVolunteer from "./routes/formBeVolunteerRoute";
 import serverMiddlewares from "./middlewares/server";
+import errorHandler from "./middlewares/errorHandler";
 
 const app = express();
 
@@ -13,3 +14,5 @@ serverMiddlewares(app);
 
 app.use("/api", formTalkToUsRoute);
 app.use("/api", formBeVolunteer);
+
+app.use(errorHandler);
