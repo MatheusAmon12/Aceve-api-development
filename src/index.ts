@@ -3,6 +3,9 @@ import formTalkToUsRoute from "./routes/formTalkToUsRoute";
 import formBeVolunteer from "./routes/formBeVolunteerRoute";
 import serverMiddlewares from "./middlewares/server";
 import errorHandler from "./middlewares/errorHandler";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 
