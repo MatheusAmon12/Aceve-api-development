@@ -1,13 +1,13 @@
-import { MailOptions } from "nodemailer/lib/sendmail-transport";
-import { transporter } from "../config/nodemailerConfig";
+import { CreateEmailOptions } from "resend";
+import resend from "../services/resendService";
 
-const sendEmailMessage = (emailMessage: MailOptions) => {
-    transporter.sendMail(emailMessage, (error, info) => {
-        if (error) {
-            return console.log(error);
-        }
-        console.log(`E-mail enviado: ${info.response}`);
-    });
+const sendEmailMessage = async (emailMessageConfig: CreateEmailOptions) => {
+    try {
+        return await resend.emails.send(emailMessageConfig);
+    } catch (error) {
+        console.error("Erro ao enviar o e-mail:", error);
+        throw error;
+    }
 };
 
 

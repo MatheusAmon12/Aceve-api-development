@@ -1,3 +1,5 @@
+import { CreateEmailOptions } from "resend";
+
 interface IFormBeeVolunteerValues {
     name: string;
     dateOfBirth: string;
@@ -14,36 +16,48 @@ interface IFormTalkToUsValues {
     message: string;
 }
 
-const setEmailFormTalkToUsConfig = (formTalkToUsValues: IFormTalkToUsValues) => {
-    const emailMessage = {
-        from: process.env.SMTP_FROM_EMAIL || "",
-        to: process.env.SMTP_TO_EMAIL || "",
-        subject: `Novo contato de ${formTalkToUsValues.name}`,
-        text: formTalkToUsValues.message,
+const setEmailFormTalkToUsConfig = (formTalkToUsValues: IFormTalkToUsValues): CreateEmailOptions => {
+    const emailMessageConfig = {
+        from: process.env.EMAIL_FROM || "onboarding@resend.dev",
+        to: process.env.EMAIL_TO || "",
+        subject: "Fale Conosco ACEVE",
+        html: `
+            <html>
+                <body>
+                    <p>Nome: ${formTalkToUsValues.name}</p>
+                    <p>E-mail: ${formTalkToUsValues.email}</p>
+                    <p>Mensagem: ${formTalkToUsValues.message}</p>
+                </body>
+            </html>
+        `,
         replyTo: formTalkToUsValues.email
-    };
+    }
 
-    return emailMessage;
+    return emailMessageConfig;
 };
 
-const setEmailFormBeVolunteerConfig = (formBeVolunteerValues: IFormBeeVolunteerValues) => {
-    const emailMessage = {
-        from: process.env.SMTP_FROM_EMAIL || "",
-        to: process.env.SMTP_TO_EMAIL || "",
-        subject: "Voluntariado ACEVE",
+const setEmailFormBeVolunteerConfig = (formBeVolunteerValues: IFormBeeVolunteerValues): CreateEmailOptions => {
+    const emailMessageConfig = {
+        from: process.env.EMAIL_FROM || "onboarding@resend.dev",
+        to: process.env.EMAIL_TO || "",
+        subject: "Seja Voluntário ACEVE",
         html: `
-            <p>Nome: ${formBeVolunteerValues.name}</p>
-            <p>Data de nascimento: ${formBeVolunteerValues.dateOfBirth}</p>
-            <p>Telefone: ${formBeVolunteerValues.phone}</p>
-            <p>E-mail: ${formBeVolunteerValues.email}</p>
-            <p>Área de interesse: ${formBeVolunteerValues.interestArea}</p>
-            <p>Disponibilidade: ${formBeVolunteerValues.availability}</p>
-            <p>Mensagem: ${formBeVolunteerValues.message}</p>
+            <html>
+                <body>
+                    <p>Nome: ${formBeVolunteerValues.name}</p>
+                    <p>Data de Nascimento: ${formBeVolunteerValues.dateOfBirth}</p>
+                    <p>Telefone: ${formBeVolunteerValues.phone}</p>
+                    <p>E-mail: ${formBeVolunteerValues.email}</p>
+                    <p>Disponibilidade: ${formBeVolunteerValues.availability}</p>
+                    <p>Área de Interesse: ${formBeVolunteerValues.interestArea}</p>
+                    <p>Mensagem: ${formBeVolunteerValues.message}</p>
+                </body>
+            </html>
         `,
         replyTo: formBeVolunteerValues.email
-    };
+    }
 
-    return emailMessage;
+    return emailMessageConfig;
 };
 
 export { 

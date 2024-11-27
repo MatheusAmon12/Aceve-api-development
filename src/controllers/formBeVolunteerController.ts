@@ -1,17 +1,17 @@
 import { Request, Response } from "express";
-import sendEmail from "../lib/sendEmail";
 import { setEmailFormBeVolunteerConfig } from "../config/emailsConfig";
+import sendEmailMessage from "../lib/sendEmail";
 
 const formBeVolunteerController = {
-    index: (req: Request, res: Response) => {
+    index: async (req: Request, res: Response) => {
         const formBeVolunteerValues = req.body;
-
         try {
-            const emailOptions = setEmailFormBeVolunteerConfig(formBeVolunteerValues);
-            sendEmail(emailOptions);
-            res.status(200).json({ message: "Mensagem enviada com sucesso!" });
+            let emailMessageConfig = setEmailFormBeVolunteerConfig(formBeVolunteerValues);
+            const response = await sendEmailMessage(emailMessageConfig);
+            res.status(200).json({ message: "Mensagem enviada com sucesso!", response });
         } catch (error) {   
-            res.status(500).json({ message: "Erro ao enviar mensagem." });
+            res.status(500).json({ 
+                message: "Erro ao enviar mensagem." + error});
         }
     }
 };
