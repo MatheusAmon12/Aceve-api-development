@@ -4,7 +4,6 @@
 - Node.js: ferramenta de desenvolvimento back-end.
 - Express.js: framework para desenvolvimento de APIs.
 - TypeScript: linguagem de programação que adiciona tipagem estática ao JavaScript.
-- Nodemailer: biblioteca para envio de e-mails.
 
 ## Estrutura dos Dados
 A API integra com dois formulário com distinção de campos entre si.
