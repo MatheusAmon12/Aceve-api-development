@@ -11,7 +11,7 @@ const formBeVolunteerController = {
             res.status(200).json({ message: "Mensagem enviada com sucesso!", response });
         } catch (error) {   
             res.status(500).json({ 
-                message: "Erro ao enviar mensagem." + error});
+                message: `Erro interno ao enviar o e-mail: ${error}`});
         }
     }
 };
