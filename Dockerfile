@@ -6,9 +6,9 @@ COPY package.json yarn.lock ./
 
 RUN yarn install --frozen-lockfile
 
-RUN yarn build
-
 COPY . .
+
+RUN yarn build
 
 EXPOSE 3000
 
