@@ -4,6 +4,7 @@ Este repositório tem por objetivo a implementação de um Back-End para lidar c
 
 ## Sobre o Projeto
 
+<<<<<<< HEAD
 A ONG ACEVE visa apoiar as mulheres em situação de vulnerabilidade, fortalecendo os laços familiares. Para obter mais informações acerca da ONG acesse o [README do Front-End do projeto](https://github.com/Grupo-Simios/Aceve-website-development/blob/main/README.md).
 
 ## Arquitetura do Projeto
@@ -20,6 +21,9 @@ Todo o código está estruturado em diretórios com responsabilidades específic
 - `middlewares`: validam as requisições HTTP e lidam com erros.
 - `routes`: define as rotas e associa a cada controller.
 - `services`: utiliza os serviços do Resend.
+=======
+A ONG ACEVE visa apoiar as mulheres em situação de vulnerabilidade, fortalecendo os laços familiares. Para obter mais informações acerca da ONG acesse o [README do Front-End do projeto](https://github.com/Grupo-Simios/Aceve-website-development/blob/main/README.md).                              
+>>>>>>> 3b21a8a98982a6be3badd22a308642b1f254fc17
 
 ## Tecnologias Utilizadas
 - Node.js v20
