@@ -1,9 +1,40 @@
 # API ACEVE (Associação Cultural e Educacional Violeta Eliz)
 
+Este repositório tem por objetivo a implementação de um Back-End para lidar com os envios de formulários da página ACEVE, facilitando o contato com a ONG e a candidatura em projetos voluntários.   
+
+## Sobre o Projeto
+
+A ONG ACEVE visa apoiar as mulheres em situação de vulnerabilidade, fortalecendo os laços familiares. Para obter mais informações acerca da ONG acesse o [README do Front-End do projeto](https://github.com/Grupo-Simios/Aceve-website-development/blob/main/README.md).                              
+
 ## Tecnologias Utilizadas
-- Node.js: ferramenta de desenvolvimento back-end.
-- Express.js: framework para desenvolvimento de APIs.
-- TypeScript: linguagem de programação que adiciona tipagem estática ao JavaScript.
+- Node.js v20
+- Express.js
+- TypeScript
+- Resend
+
+## Links Importantes
+
+- [Front-End do projeto](https://github.com/Grupo-Simios/Aceve-website-development/)
+
+
+## Configuração do Ambiente
+
+1. Clone o repositório:
+    ```bash
+    git clone https://github.com/Grupo-Simios/Aceve-api-development.git
+    ```
+2. Instale as dependências:
+    ```bash
+    yarn install
+    ```
+3. Configure as variáveis de ambiente:
+    - `PORT`: Porta do servidor (default: 5173).
+    - `RESEND_API_KEY`: Chave da API do [Resend](https://resend.com/).
+    - `EMAIL_TO`: E-mail para receber os formulários.
+4. Execute o projeto:
+    ```bash
+    yarn start
+    ```
 
 ## Estrutura dos Dados
 A API integra com dois formulário com distinção de campos entre si.
@@ -96,3 +127,7 @@ Rota para receber os dados do formulário de candidato a voluntariado e direcion
 
 - É utilizada a lib `helmet` para configurar headers HTTP e melhorar a segurança da aplicação.
 - É utilizada também a lib `express-rate-limit` para limitar o acesso de uma mesma IP a essa API, evitando ataques de DoS.
+
+## Licença
+
+Este projeto é de código fechado e não está disponível para contribuições fora do Grupo Simios.
